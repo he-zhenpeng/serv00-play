@@ -34,13 +34,17 @@ for info in "${hosts_info[@]}"; do
     echo "登录失败"
     msg="🔴主机 ${host}, 用户 ${user}， 登录失败!\n"
     chmod +x ./tgsend.sh
+    ./wxsend.sh
     export PASS=$pass
     ./tgsend.sh "Host:$host, user:$user, 登录失败，请检查!"
+    ./wxsend.sh "Host:$host, user:$user, 登录失败，请检查!"
   fi
   summary=$summary$(echo -n $msg)
 done
 
 if [[ "$LOGININFO" == "Y" ]]; then
   chmod +x ./tgsend.sh
+  ./wxsend.sh
   ./tgsend.sh "$summary"
+  ./wxsend.sh "$summary"
 fi
