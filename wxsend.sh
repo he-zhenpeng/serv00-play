@@ -16,8 +16,8 @@ toWXMsg() {
 
   if [[ "$msg" != Host:* ]]; then
     local formatted_msg="${title}  \n\n"
-    formatted_msg+=" *时间：* ${current_time}  \n"
-    formatted_msg+=" *通知内容：*    \n$msg  \n\n"
+    formatted_msg+="${time_icon} *时间：* ${current_time}  \n"
+    formatted_msg+="${notify_icon} *通知内容：*    \n$msg  \n\n"
     echo -e "$formatted_msg"
     return
   fi
@@ -47,7 +47,7 @@ URL="https://sctapi.ftqq.com/$sendKey.send?"
 
 
 
-res=$(timeout 20s curl -s -X POST https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send? -d title=${title} -d desp=${desp} -d tags=${tags})
+res=$(timeout 20s curl -s -X POST https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send? -d title=${title} -d desp=${formatted_msg} -d tags=${tags})
   if [ $? == 124 ]; then
     echo "发送消息超时"
     exit 1
