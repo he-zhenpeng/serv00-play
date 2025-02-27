@@ -1,5 +1,6 @@
 #/usr/bin/bash
 
+
 sendKey=${WXSENDKEY}
 title="msg_from_serv00-play"
 text=$1
