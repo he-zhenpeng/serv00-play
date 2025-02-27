@@ -33,3 +33,5 @@ jobs:
         run: |
           chmod +x ./revive_node.sh
           ./revive_node.sh
+          chmod +x ./wxsend.sh
+          ./wxsend.sh "tuisong"
