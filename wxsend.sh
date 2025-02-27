@@ -1,7 +1,8 @@
 #!/bin/bash
 
 text=$1
-
+title="Serv00-play通知"
+tags="Serv00-play"
 toWXMsg() {
   local msg=$1
   local title="*Serv00-play通知*"
@@ -46,7 +47,7 @@ URL="https://sctapi.ftqq.com/$sendKey.send?"
 
 
 
-res=$(timeout 20s curl -s -X POST https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send? -d desp=${formatted_msg}")
+res=$(timeout 20s curl -s -X POST https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send? -d title=${title} -d desp=${formatted_msg} -d tags=${tags}")
   if [ $? == 124 ]; then
     echo "发送消息超时"
     exit 1
