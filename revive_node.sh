@@ -38,26 +38,34 @@ for info in "${hosts_info[@]}"; do
     echo "账号被封"
     msg="🔴主机 ${host}, 用户 ${user}， 账号被封!\n"
     chmod +x ./tgsend.sh
+    chmod +x ./wxsend.sh
     export PASS=$pass
     ./tgsend.sh "Host:$host, user:$user, 账号被封，请检查!"
+    ./wxsend.sh "Host:$host, user:$user, 账号被封，请检查!"
   elif [ "$output" -eq 404 ]; then
     echo "keepalive服务不在线"
     msg="🔴主机 ${host}, 用户 ${user}， keepalive服务不在线!\n"
     chmod +x ./tgsend.sh
+    chmod +x ./wxsend.sh
     export PASS=$pass
     ./tgsend.sh "Host:$host, user:$user, keepalive服务不在线，请检查!"
+    ./wxsend.sh "Host:$host, user:$user, keepalive服务不在线，请检查!"
   elif [ "$output" -eq 401 ]; then
     echo "授权码错误"
     msg="🔴主机 ${host}, 用户 ${user}， 授权码错误!\n"
     chmod +x ./tgsend.sh
+    chmod +x ./wxsend.sh
     export PASS=$pass
     ./tgsend.sh "Host:$host, user:$user, 授权码错误，请检查!"
+    ./wxsend.sh "Host:$host, user:$user，授权码错误，请检查!"
   else
     echo "连接失败，可能网络问题!"
     msg="🔴主机 ${host}, 用户 ${user}， 连接失败，可能网络问题!\n"
     chmod +x ./tgsend.sh
+    chmod +x ./wxsend.sh
     export PASS=$pass
     ./tgsend.sh "Host:$host, user:$user, 连接失败，可能网络问题，可直接访问主页查看: https://$user.serv00.net"
+    ./wxsend.sh "Host:$host, user:$user, 连接失败，可能网络问题，可直接访问主页查看: https://$user.serv00.net"
   fi
   summary=$summary$(echo -n $msg)
 done
@@ -65,4 +73,6 @@ done
 if [[ "$LOGININFO" == "Y" ]]; then
   chmod +x ./tgsend.sh
   ./tgsend.sh "$summary"
+  chmod +x ./wxsend.sh
+  ./wxsend.sh "$summary"
 fi
