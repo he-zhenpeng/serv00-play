@@ -62,7 +62,7 @@ toTGMsg() {
   echo -e "$formatted_msg|${host}|${user}" # 使用 -e 选项以确保换行符生效
   res2=$(curl -s -X POST "https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send" \
     -d title="$title" \
-    -d desp="$formatted_msg"
+    -d desp="$formatted_msg")
 }
 
 telegramBotToken=${TELEGRAM_TOKEN}
