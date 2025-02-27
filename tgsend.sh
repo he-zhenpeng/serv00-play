@@ -106,7 +106,9 @@ else
     -d parse_mode="Markdown" \
     -d text="$formatted_msg" \
     -d reply_markup="$reply_markup")
-  res2=$(curl -s -X POST "https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send?title=$title&desp=$formatted_msg"
+  res2=$(curl -s -X POST "https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send" \
+    -d title="$title" \
+    -d desp="$formatted_msg"
   if [ $? == 124 ]; then
     echo 'TG_api请求超时,请检查网络是否重启完成并是否能够访问TG'
     exit 1
