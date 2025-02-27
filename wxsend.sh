@@ -5,7 +5,7 @@ text=$1
 sendKey=${WXSENDEKEY}
 title="msg_from_serv00-play"
 URL="https://sctapi.ftqq.com/$sendKey.send?"
-res=$(timeout 20s curl -s -X POST https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send -d title=${title} -d desp="${text}")
+
 if [[ -z ${sendKey} ]]; then
   echo "未配置微信推送的sendKey,通过 https://sct.ftqq.com/r/13223 注册并登录server酱，取得sendKey"
 else
