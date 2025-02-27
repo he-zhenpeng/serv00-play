@@ -1,9 +1,10 @@
 #!/bin/bash
 
-text=$1
+
 
 sendKey=${WXSENDKEY}
 title="msg_from_serv00-play"
+text=$1
 URL="https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send?"
 
 if [[ -z ${sendKey} ]]; then
