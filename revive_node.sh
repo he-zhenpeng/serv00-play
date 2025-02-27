@@ -71,8 +71,9 @@ for info in "${hosts_info[@]}"; do
 done
 
 if [[ "$LOGININFO" == "Y" ]]; then
-  chmod +x ./tgsend.sh
-  ./tgsend.sh "$summary"
   chmod +x ./wxsend.sh
   ./wxsend.sh "$summary"
+  chmod +x ./tgsend.sh
+  ./tgsend.sh "$summary"
+  
 fi
