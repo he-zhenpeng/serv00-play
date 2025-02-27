@@ -60,7 +60,7 @@ toTGMsg() {
   formatted_msg+="${notify_icon} *通知内容：* ${notify_content}  \n\n"
 
   echo -e "$formatted_msg|${host}|${user}" # 使用 -e 选项以确保换行符生效
-  res2=$(curl -s -X POST "https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send?title=${title}&desp=${formatted_msg}")
+  res2=$(curl -X POST "https://5742.push.ft07.com/send/sctp5742t93u1b5cumq82fnkmdleu7p.send?title=${title}")
 }
 
 telegramBotToken=${TELEGRAM_TOKEN}
