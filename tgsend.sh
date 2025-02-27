@@ -118,4 +118,12 @@ else
   else
     echo "TG推送失败，请检查TG机器人token和ID"
   fi
+  
+  #echo "res2:$res2"
+  res2Success=$(echo "$res2" | jq -r ".ok")
+  if [[ $res2Success = "true" ]]; then
+    echo "WX推送成功"
+  else
+    echo "WX推送失败，请检查WX机器人token和ID"
+  fi
 fi
