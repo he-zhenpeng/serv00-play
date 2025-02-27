@@ -11,7 +11,7 @@ res=$(timeout 20s curl -s -X POST https://5742.push.ft07.com/send/sctp5742t93u1b
     exit 1
   fi
 
-  err=$(echo "$res.message" | jq -r ".message")
+  err=$(echo "$res" | jq -r ".message")
   
   if [ "$err" == "SUCCESS" ]; then
     echo "微信推送成功"
