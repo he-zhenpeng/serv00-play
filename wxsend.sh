@@ -36,7 +36,7 @@ toWXMsg() {
 }
 sendKey=${WXSENDEKEY}
 
-result=$(toTGMsg "$message_text")
+result=$(toWXMsg "$message_text")
 formatted_msg=$(echo "$result" | awk -F'|' '{print $1}')
 host=$(echo "$result" | awk -F'|' '{print $2}')
 user=$(echo "$result" | awk -F'|' '{print $3}')
