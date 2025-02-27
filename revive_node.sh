@@ -72,7 +72,6 @@ done
 
 if [[ "$LOGININFO" == "Y" ]]; then
   chmod +x ./wxsend.sh
-  ./wxsend.sh "$summary"
   chmod +x ./tgsend.sh
   ./tgsend.sh "$summary"
   
