@@ -1,4 +1,4 @@
-#!/bin/bash
+#/usr/bin/bash
 
 sendKey=${WXSENDKEY}
 title="msg_from_serv00-play"
